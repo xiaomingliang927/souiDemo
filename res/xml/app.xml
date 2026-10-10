@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<SOUI name="newDemo"
+        title="lumen-conv"
+        width="1200" height="760"
+        wndType="appMain"
+        resizable="1"
+        translucent="1"
+        margin="10,10,10,10"
+        alpha="255">
+
+        <root colorBkgnd="@color/window_background" cache="1"> // <!-- 自定义标题栏 -->
+  <caption pos="0,0,-0,42"
+                        colorBkgnd="@color/sidebar_background"
+                        focusable="1"
+                        drawfocusrect="0">
+
+                        <text pos="16,0,@300,@42"
+                                colorText="@color/text_primary"
+                                text="Lumen-conv" />
+
+                        <text pos="310,0,-80,42"
+                                colorText="@color/text_secondary"
+                                text="视频转换工具" />
+
+                        <imgbtn id="1"
+                                skin="_skin.sys.btn.close"
+                                pos="-40,5,@32,@32"
+                                tip="关闭" />
+                </caption>
+
+                <!-- 内容区从标题栏下面开始 -->
+  <window pos="0,42,-0,-0"
+                        layout="hbox">
+                        <!-- 左侧导航栏 -->
+                        <window name="left_sidebar"
+                                size="180,-2"
+                                colorBkgnd="@color/sidebar_background"
+                                layout="vbox"
+                                padding="12,16,12,12"
+                                interval="8">
+
+
+                                <text size="-2,30"
+                                        colorText="@color/text_secondary"
+                                        text="视频转换工具" />
+
+
+                                <button name="btn_tasks"
+                                        text="任务列表"
+                                        size="-2,40"
+                                        skin="btn_translucent"
+                                        colorText="#FFFFFF"
+                                        colorTextHover="#FFFFFF"
+                                        colorTextPush="#FFFFFF" />
+
+                                <button name="btn_settings"
+                                        size="-2,40"
+                                        skin="btn_translucent"
+                                        colorText="#FFFFFF"
+                                        colorTextHover="#FFFFFF"
+                                        colorTextPush="#FFFFFF"
+                                        text="设置" />
+
+                                <window size="-2,0"
+                                        weight="1" />
+
+                                <text size="-2,24"
+                                        colorText="@color/text_secondary"
+                                        text="版本 1.0.0" />
+                        </window>
+
+                        <!-- 中间主内容区 -->
+                        <window name="main_content"
+                                size="0,-2"
+                                weight="1"
+                                colorBkgnd="@color/window_background"
+                                layout="vbox"
+                                padding="16,16,16,16"
+                                interval="10">
+
+
+                                <window name="file_panel"
+                                        size="-2,130"
+                                        layout="vbox"
+                                        interval="8">
+                                        <!--interval="8"
+                                        工具栏中相邻控件之间有 8 像素间隔。-->
+                                        <window name="file_toolbar"
+                                                size="-2,30"
+                                                layout="hbox"
+                                                interval="8">
+
+                                                <text size="90,30"
+                                                        text="待转换文件"
+                                                        colorText="#FFFFFF" />
+
+                                                <text name="txt_file_summary"
+                                                        size="110,30"
+                                                        text="1 个 · 298 KB"
+                                                        colorText="#98A5B8" />
+
+                                                <window size="0,30"
+                                                        weight="1" />
+
+                                                <button name="btn_clear_files"
+                                                        size="48,30"
+                                                        text="清空"
+                                                        skin="skin_file_action"
+                                                        colorText="#ADB7C6"
+                                                        colorTextHover="#FFFFFF"
+                                                        colorTextPush="#FFFFFF" />
+
+                                                <button name="btn_add_files"
+                                                        size="80,30"
+                                                        text="添加文件"
+                                                        skin="skin_file_action"
+                                                        colorText="#FFFFFF"
+                                                        colorTextHover="#FFFFFF"
+                                                        colorTextPush="#FFFFFF" />
+                                        </window>
+    <listview name="file_list"
+              size="-2,0"
+              weight="1">
+                                        <itemPanel name="file_card"
+                                                size="-2,92"
+                                                padding="12,8,12,8">
+
+                                                <check name="chk_select"
+                                                        pos="0,32,24,56" />
+
+                                                <image name="img_thumbnail"
+                                                        pos="32,8,112,84" />
+
+                                                <text name="txt_file_name"
+                                                        pos="128,12,-120,38"
+                                                        text="video.mp4" />
+
+                                                <text name="txt_file_info"
+                                                        pos="128,42,-120,66"
+                                                        text="MP4 · 1920×1080 · 20 MB" />
+
+                                                <text name="txt_duration"
+                                                        pos="-100,12,-12,38"
+                                                        text="02:35" />
+
+                                                <button name="btn_remove"
+                                                        pos="-100,48,-12,78"
+                                                        text="删除" />
+                                        </itemPanel>
+                                        </listview>
+                                </window>
+
+                                <window name="preview_title"
+                                        size="-2,28"
+                                        layout="hbox">
+
+                                        <text size="0,28"
+                                                weight="1"
+                                                colorText="@color/text_primary"
+                                                text="视频预览" />
+
+                                        <text size="150,28"
+                                                colorText="@color/text_secondary"
+                                                text="原始 / 输出" />
+
+                                </window>
+
+                                <window name="preview_area"
+                                        size="-2,0"
+                                        weight="1"
+                                        layout="hbox"
+                                        interval="10">
+
+                                        <window name="source_preview"
+                                                size="0,-2"
+                                                weight="1"
+                                                colorBkgnd="#0B0D11" layout="vbox"
+                                                padding="10,10,10,10">
+
+                                                <text size="-2,24"
+                                                        colorText="@color/text_secondary"
+                                                        text="原始视频" />
+
+                                                <window size="-2,0"
+                                                        weight="1" />
+
+                                                <text size="-2,24"
+                                                        colorText="@color/text_secondary"
+                                                        text="等待加载视频" />
+
+                                        </window>
+
+                                        <window name="output_preview"
+                                                size="0,-2"
+                                                weight="1"
+                                                colorBkgnd="#0B0D11" layout="vbox"
+                                                padding="10,10,10,10">
+
+                                                <text size="-2,24"
+                                                        colorText="@color/text_secondary"
+                                                        text="输出视频" />
+
+                                                <window size="-2,0"
+                                                        weight="1" />
+
+                                                <text size="-2,24"
+                                                        colorText="@color/text_secondary"
+                                                        text="处理后的视频将在这里显示" />
+
+                                        </window>
+
+                                </window>
+
+                                <!-- 状态栏和进度条 -->
+                                <window name="status_bar"
+                                        size="-2,30"
+                                        colorBkgnd="@color/panel_background"
+                                        layout="hbox"
+                                        padding="10,8,10,8">
+
+                                        <!-- 进度条 -->
+                                        <progress name="progress_task"
+                                                size="160,10" />
+
+                                </window>
+
+                        </window>
+
+                        <!-- 右侧设置区 -->
+                        <window name="right_settings"
+                                size="290,-2"
+                                colorBkgnd="@color/sidebar_background"
+                                layout="vbox"
+                                padding="14,16,14,14"
+                                interval="8">
+
+                                <text size="-2,30"
+                                        colorText="@color/text_primary"
+                                        text="输出设置" />
+
+                                <text size="-2,22"
+                                        colorText="@color/text_secondary"
+                                        text="输出格式" />
+
+                                <combobox name="cmb_format"
+                                        size="-2,34"
+                                        dropDown="1"
+                                        curSel="1"
+                                        dropHeight="120"
+                                        colorBkgnd="#2B2B2B"
+                                        colorText="#FFFFFF">
+
+                                        <listStyle itemHeight="30"
+                                                colorText="#FFFFFF"
+                                                colorSelText="#FFFFFF"
+                                                colorItemBkgnd="#2B2B2B"
+                                                colorItemSelBkgnd="#505050" />
+
+                                        <items>
+                                                <item text="MP4" />
+                                                <item text="MKV" />
+                                                <item text="WEBM" />
+                                        </items>
+                                </combobox>
+
+                                <text size="-2,22"
+                                        colorText="@color/text_secondary"
+                                        text="分辨率" />
+
+                                <combobox name="cmb_format"
+                                        size="-2,34"
+                                        dropDown="1"
+                                        curSel="0"
+                                        dropHeight="120"
+                                        colorBkgnd="#2B2B2B"
+                                        colorText="#FFFFFF">
+
+                                        <listStyle itemHeight="30"
+                                                colorText="#FFFFFF"
+                                                colorSelText="#FFFFFF"
+                                                colorItemBkgnd="#2B2B2B"
+                                                colorItemSelBkgnd="#505050" />
+
+                                        <items>
+                                                <item text="640 × 360" />
+                                                <item text="1280 × 720" />
+                                                <item text="1920 × 1080" />
+                                        </items>
+                                </combobox>
+
+                                <text size="-2,22"
+                                        colorText="@color/text_secondary"
+                                        text="编码器" />
+
+                                <combobox name="cmb_format"
+                                        size="-2,34"
+                                        dropDown="1"
+                                        curSel="0"
+                                        dropHeight="120"
+                                        colorBkgnd="#2B2B2B"
+                                        colorText="#FFFFFF">
+
+                                        <listStyle itemHeight="30"
+                                                colorText="#FFFFFF"
+                                                colorSelText="#FFFFFF"
+                                                colorItemBkgnd="#2B2B2B"
+                                                colorItemSelBkgnd="#505050" />
+
+                                        <items>
+                                                <item text="H.264" />
+                                                <item text="H.265" />
+                                        </items>
+                                </combobox>
+
+                                <text size="-2,22"
+                                        colorText="@color/text_secondary"
+                                        text="码率" />
+
+                                <edit name="edit_bitrate"
+                                        size="-2,34"
+                                        colortext="@color/text_primary"
+                                        text="2500" />
+
+                                <check name="chk_audio"
+                                        size="-2,30"
+                                        colortext="@color/text_primary"
+                                        text="保留音频" />
+
+                                <window size="-2,0"
+                                        weight="1" />
+
+                                <button name="btn_start"
+                                        size="-2,42"
+                                        skin="btn_translucent"
+                                        colorText="#FFFFFF"
+                                        colorTextHover="#FFFFFF"
+                                        colorTextPush="#FFFFFF"
+                                        text="开始处理" />
+
+                        </window>
+
+                </window>
+        </root>
+</SOUI>

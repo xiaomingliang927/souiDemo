@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  uires.idx = UI 资源索引表。
+  规则：每个一级子节点名 = 资源类型(type)，其下 <file name="..." path="..."/> 中
+  name = 代码/XML 中引用的资源名，path = 相对 uires 目录的文件路径。
+  运行时 SResProviderFiles::Init() 会把这个表读成 (type,name) -> 相对路径 的映射
+  （见 soui\SOUI\src\res.mgr\SResProvider.cpp:369-404）。
+-->
+<resource>
+	<!-- SOUI 初始化脚本：定义全局字体、string/color/skin/template 表、style 类 -->
+	<UIDEF>
+		<file name="xml_init" path="uidef\init.xml" />
+	</UIDEF>
+	<!-- 命名值表：代码里 GETCOLOR(R.color.xxx) / GETSTRING(R.string.xxx) 取这里 -->
+	<values>
+		<file name="color" path="values\color.xml" />
+		<file name="string" path="values\string.xml" />
+	</values>
+	<!-- 窗口布局：SHostWnd(UIRES.LAYOUT.app) 里的 UIRES.LAYOUT.app 就指向这里 -->
+	<LAYOUT>
+		<file name="app" path="xml\app.xml"/>
+	</LAYOUT>
+</resource>

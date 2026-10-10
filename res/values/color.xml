@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<color>
+  <!-- 主窗口背景 -->
+  <window_background value="#101217"/>
+
+  <!-- 左侧栏和右侧设置栏背景 -->
+  <sidebar_background value="#171A21"/>
+
+  <!-- 内容卡片背景 -->
+  <panel_background value="#1B1F27"/>
+
+  <!-- 卡片边框 -->
+  <panel_border value="#2A303A"/>
+
+  <!-- 主要文字 -->
+  <text_primary value="#F2F4F7"/>
+
+  <!-- 辅助文字 -->
+  <text_secondary value="#858D9B"/>
+
+  <!-- 橙色主按钮 -->
+  <accent value="#F5A623"/>
+
+  <!-- 成功状态 -->
+  <success value="#35C759"/>
+</color>

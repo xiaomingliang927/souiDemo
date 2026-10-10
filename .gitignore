@@ -1,0 +1,25 @@
+# Visual Studio and VS Code
+.vs/
+.vscode/
+*.user
+*.suo
+*.VC.db
+
+# Build outputs and intermediate files
+[Bb]in/
+[Bb]in64/
+[Dd]ebug/
+[Rr]elease/
+obj/
+*.obj
+*.pch
+*.pdb
+*.ilk
+*.tlog/
+*.log
+*.idb
+*.ipch
+
+# OS files
+[Tt]humbs.db
+*.DS_Store

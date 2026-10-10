@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  UIDEF：SOUI 应用级初始化脚本。
+  在 theApp->AddResProvider(pResProvider) 时被自动加载（默认 uidef 名就是 "uidef:xml_init"，
+  见 SResProviderMgr::AddResProvider 的第二个参数）。
+-->
+<UIDEF>
+  <!-- 全局默认字体 -->
+  <font face="微软雅黑" size="18"/>
+
+  <!-- 把命名值表挂进来；src 语法是 “资源类型:资源名” -->
+  <color src="values:color"/>
+  <string src="values:string"/>
+
+  <!-- 全局 style（class）：XML 里 class="xxx" 直接引用 -->
+  <style>
+    <class name="txt_title"  font="face:微软雅黑,size:26,bold:1" colorText="#2D6CDF"/>
+    <class name="txt_body"   font="face:微软雅黑,size:16"      colorText="#444444"/>
+    <class name="btn_brand"  colorText="#FFFFFF" colorTextHover="#FFFFFF"
+           font="face:微软雅黑,size:16" cursor="hand" margin-x="0"/>
+  </style>
+
+<skin>
+  <button name="btn_translucent"
+          colorBorder="#FFFFFF40"
+          colorUp="#FFFFFF15"
+          colorDown="#FFFFFF15"
+          colorUpHover="#FFFFFF30"
+          colorDownHover="#FFFFFF30"
+          colorUpPush="#FFFFFF50"
+          colorDownPush="#FFFFFF50"/>
+
+  <button name="skin_file_card"
+        cornerRadius="8"
+        colorBorder="#70552D"
+        colorUp="#15181E"
+        colorDown="#15181E"/>
+
+<button name="skin_file_action"
+        cornerRadius="5"
+        colorBorder="#343A46"
+        colorBorderHover="#586477"
+        colorBorderPush="#586477"
+        colorUp="#1E232C"
+        colorDown="#1E232C"
+        colorUpHover="#2A3240"
+        colorDownHover="#2A3240"
+        colorUpPush="#141A24"
+        colorDownPush="#141A24"/>
+</skin>
+
+  <!-- 控件默认属性：给某类控件统一加默认值 -->
+  <objattr>
+    <button class="btn_brand"/>
+  </objattr>
+</UIDEF>
