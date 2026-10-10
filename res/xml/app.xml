@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <SOUI name="newDemo"
         title="lumen-conv"
@@ -9,10 +9,12 @@
         margin="10,10,10,10"
         alpha="255">
 
-        <root colorBkgnd="@color/window_background" cache="1"> // <!-- 自定义标题栏 -->
+        <root colorBkgnd="@color/window_background" cache="1">
+                <!-- 自定义标题栏 -->
   <caption pos="0,0,-0,42"
                         colorBkgnd="@color/sidebar_background"
                         focusable="1"
+                        colorBorder="#F5F7FB"
                         drawfocusrect="0">
 
                         <text pos="16,0,@300,@42"
@@ -23,10 +25,18 @@
                                 colorText="@color/text_secondary"
                                 text="视频转换工具" />
 
-                        <imgbtn id="1"
+                        <imgbtn name="btn_close"
+                                id="1"
                                 skin="_skin.sys.btn.close"
-                                pos="-40,5,@32,@32"
-                                tip="关闭" />
+                                pos="-48,3,@42,@36"
+                                tip="关闭"
+                                animate="1"
+                                cursor="hand"
+                                focusable="0" />
+                            <window pos="0,-1,0,0"
+                                size="-2,1"
+                                colorBkgnd="#DDE3ED"
+                                msgTransparent="1"/>
                 </caption>
 
                 <!-- 内容区从标题栏下面开始 -->
@@ -34,33 +44,41 @@
                         layout="hbox">
                         <!-- 左侧导航栏 -->
                         <window name="left_sidebar"
-                                size="180,-2"
-                                colorBkgnd="@color/sidebar_background"
+                                size="206,-2"
+                                colorBkgnd="@color/panel_background"
                                 layout="vbox"
-                                padding="12,16,12,12"
-                                interval="8">
+                                padding="5,9,8,12"
+                                interval="0">
 
+                                <button name="btn_convert" size="-2,38"
+                                        skin="skin_nav_selected" cursor="hand"
+                                        drawfocusrect="0" animate="0">
+                                        <window name="nav_convert_icon" pos="14,16,@10,@1" colorBkgnd="#F58A00" msgTransparent="1" />
+                                        <window name="nav_convert_icon_mid" pos="14,19,@8,@1" colorBkgnd="#F58A00" msgTransparent="1" />
+                                        <window name="nav_convert_icon_bottom" pos="14,22,@5,@1" colorBkgnd="#F58A00" msgTransparent="1" />
+                                        <text name="nav_convert_text" pos="35,0,-8,-0" text="转换"
+                                                font="face:微软雅黑,size:13" colorText="#F58A00" msgTransparent="1" />
+                                </button>
 
-                                <text size="-2,30"
-                                        colorText="@color/text_secondary"
-                                        text="视频转换工具" />
+                                <button name="btn_tasks" size="-2,38"
+                                        skin="skin_nav_normal" cursor="hand"
+                                        drawfocusrect="0" animate="0">
+                                        <window name="nav_tasks_icon" pos="14,16,@9,@1" colorBkgnd="#52647A" msgTransparent="1" />
+                                        <window name="nav_tasks_icon_mid" pos="14,19,@7,@1" colorBkgnd="#52647A" msgTransparent="1" />
+                                        <window name="nav_tasks_icon_bottom" pos="14,22,@5,@1" colorBkgnd="#52647A" msgTransparent="1" />
+                                        <text name="nav_tasks_text" pos="35,0,-8,-0" text="任务列表"
+                                                font="face:微软雅黑,size:13" colorText="#52647A" msgTransparent="1" />
+                                </button>
 
-
-                                <button name="btn_tasks"
-                                        text="任务列表"
-                                        size="-2,40"
-                                        skin="btn_translucent"
-                                        colorText="#FFFFFF"
-                                        colorTextHover="#FFFFFF"
-                                        colorTextPush="#FFFFFF" />
-
-                                <button name="btn_settings"
-                                        size="-2,40"
-                                        skin="btn_translucent"
-                                        colorText="#FFFFFF"
-                                        colorTextHover="#FFFFFF"
-                                        colorTextPush="#FFFFFF"
-                                        text="设置" />
+                                <button name="btn_settings" size="-2,38"
+                                        skin="skin_nav_normal" cursor="hand"
+                                        drawfocusrect="0" animate="0">
+                                        <text name="nav_settings_icon" pos="10,0,@18,-0" text="⚙"
+                                                font="face:Segoe UI Symbol,size:13" align="center"
+                                                colorText="#52647A" msgTransparent="1" />
+                                        <text name="nav_settings_text" pos="35,0,-8,-0" text="设置"
+                                                font="face:微软雅黑,size:13" colorText="#52647A" msgTransparent="1" />
+                                </button>
 
                                 <window size="-2,0"
                                         weight="1" />
@@ -93,12 +111,12 @@
 
                                                 <text size="90,30"
                                                         text="待转换文件"
-                                                        colorText="#FFFFFF" />
+                                                        colorText="@color/text_primary" />
 
                                                 <text name="txt_file_summary"
                                                         size="110,30"
                                                         text="1 个 · 298 KB"
-                                                        colorText="#98A5B8" />
+                                                        colorText="@color/text_secondary" />
 
                                                 <window size="0,30"
                                                         weight="1" />
@@ -107,47 +125,61 @@
                                                         size="48,30"
                                                         text="清空"
                                                         skin="skin_file_action"
-                                                        colorText="#ADB7C6"
-                                                        colorTextHover="#FFFFFF"
-                                                        colorTextPush="#FFFFFF" />
+                                                        colorText="@color/text_secondary"
+                                                        colorTextHover="@color/text_primary"
+                                                        colorTextPush="@color/text_primary" />
 
                                                 <button name="btn_add_files"
                                                         size="80,30"
                                                         text="添加文件"
                                                         skin="skin_file_action"
-                                                        colorText="#FFFFFF"
-                                                        colorTextHover="#FFFFFF"
-                                                        colorTextPush="#FFFFFF" />
+                                                        colorText="@color/text_primary"
+                                                        colorTextHover="@color/text_primary"
+                                                        colorTextPush="@color/text_primary" />
                                         </window>
-    <listview name="file_list"
-              size="-2,0"
-              weight="1">
-                                        <itemPanel name="file_card"
-                                                size="-2,92"
-                                                padding="12,8,12,8">
+                                        <listview name="file_list"
+                                                size="-2,0"
+                                                weight="1"
+                                                dividerSize="8">
+                                                <!-- listview 的项目必须放在 template 中，由适配器创建。 -->
+                                                <template itemHeight="92"
+                                                        colorNormal="#FFFFFF"
+                                                        colorHover="#F8FAFC"
+                                                        colorSelected="#FFF1E0">
+                                                        <window name="file_card"
+                                                                size="-2,92"
+                                                                padding="12,8,12,8">
 
-                                                <check name="chk_select"
-                                                        pos="0,32,24,56" />
+                                                                <check name="chk_select"
+                                                                        pos="0,32,24,56" />
 
-                                                <image name="img_thumbnail"
-                                                        pos="32,8,112,84" />
+                                                                <image name="img_thumbnail"
+                                                                        pos="32,8,112,84" />
 
-                                                <text name="txt_file_name"
-                                                        pos="128,12,-120,38"
-                                                        text="video.mp4" />
+                                                                <text name="txt_file_name"
+                                                                        pos="128,12,-120,38"
+                                                                        colorText="@color/text_primary"
+                                                                        text="video.mp4" />
 
-                                                <text name="txt_file_info"
-                                                        pos="128,42,-120,66"
-                                                        text="MP4 · 1920×1080 · 20 MB" />
+                                                                <text name="txt_file_info"
+                                                                        pos="128,42,-120,66"
+                                                                        colorText="@color/text_secondary"
+                                                                        text="MP4 · 1920×1080 · 20 MB" />
 
-                                                <text name="txt_duration"
-                                                        pos="-100,12,-12,38"
-                                                        text="02:35" />
+                                                                <text name="txt_duration"
+                                                                        pos="-100,12,-12,38"
+                                                                        colorText="@color/text_secondary"
+                                                                        text="02:35" />
 
-                                                <button name="btn_remove"
-                                                        pos="-100,48,-12,78"
-                                                        text="删除" />
-                                        </itemPanel>
+                                                                <button name="btn_remove"
+                                                                        pos="-100,48,-12,78"
+                                                                        text="删除" 
+                                                                        skin="btn_translucent"
+                                                                        colorText="@color/text_primary"
+                                                                        colorTextHover="@color/text_primary"
+                                                                        colorTextPush="@color/text_primary" />
+                                                        </window>
+                                                </template>
                                         </listview>
                                 </window>
 
@@ -175,7 +207,7 @@
                                         <window name="source_preview"
                                                 size="0,-2"
                                                 weight="1"
-                                                colorBkgnd="#0B0D11" layout="vbox"
+                                                colorBkgnd="#FFFFFF" layout="vbox"
                                                 padding="10,10,10,10">
 
                                                 <text size="-2,24"
@@ -194,7 +226,7 @@
                                         <window name="output_preview"
                                                 size="0,-2"
                                                 weight="1"
-                                                colorBkgnd="#0B0D11" layout="vbox"
+                                                colorBkgnd="#FFFFFF" layout="vbox"
                                                 padding="10,10,10,10">
 
                                                 <text size="-2,24"
@@ -214,14 +246,30 @@
 
                                 <!-- 状态栏和进度条 -->
                                 <window name="status_bar"
-                                        size="-2,30"
+                                        size="-2,42"
                                         colorBkgnd="@color/panel_background"
                                         layout="hbox"
-                                        padding="10,8,10,8">
+                                        padding="10,8,10,8"
+                                        interval="10">
 
-                                        <!-- 进度条 -->
+                                        <text name="txt_status"
+                                                size="110,24"
+                                                colorText="@color/text_secondary"
+                                                text="准备就绪" />
+
                                         <progress name="progress_task"
-                                                size="160,10" />
+                                                size="0,16"
+                                                weight="1"
+                                                min="0"
+                                                max="100"
+                                                value="0"
+                                                showPercent="0" />
+
+                                        <text name="txt_progress_percent"
+                                                size="48,24"
+                                                align="right"
+                                                colorText="@color/text_primary"
+                                                text="0%" />
 
                                 </window>
 
@@ -248,14 +296,14 @@
                                         dropDown="1"
                                         curSel="1"
                                         dropHeight="120"
-                                        colorBkgnd="#2B2B2B"
-                                        colorText="#FFFFFF">
+                                        colorBkgnd="#FFFFFF"
+                                        colorText="@color/text_primary">
 
                                         <listStyle itemHeight="30"
-                                                colorText="#FFFFFF"
-                                                colorSelText="#FFFFFF"
-                                                colorItemBkgnd="#2B2B2B"
-                                                colorItemSelBkgnd="#505050" />
+                                                colorText="@color/text_primary"
+                                                colorSelText="@color/text_primary"
+                                                colorItemBkgnd="#FFFFFF"
+                                                colorItemSelBkgnd="#FFEBD3" />
 
                                         <items>
                                                 <item text="MP4" />
@@ -273,14 +321,14 @@
                                         dropDown="1"
                                         curSel="0"
                                         dropHeight="120"
-                                        colorBkgnd="#2B2B2B"
-                                        colorText="#FFFFFF">
+                                        colorBkgnd="#FFFFFF"
+                                        colorText="@color/text_primary">
 
                                         <listStyle itemHeight="30"
-                                                colorText="#FFFFFF"
-                                                colorSelText="#FFFFFF"
-                                                colorItemBkgnd="#2B2B2B"
-                                                colorItemSelBkgnd="#505050" />
+                                                colorText="@color/text_primary"
+                                                colorSelText="@color/text_primary"
+                                                colorItemBkgnd="#FFFFFF"
+                                                colorItemSelBkgnd="#FFEBD3" />
 
                                         <items>
                                                 <item text="640 × 360" />
@@ -298,14 +346,14 @@
                                         dropDown="1"
                                         curSel="0"
                                         dropHeight="120"
-                                        colorBkgnd="#2B2B2B"
-                                        colorText="#FFFFFF">
+                                        colorBkgnd="#FFFFFF"
+                                        colorText="@color/text_primary">
 
                                         <listStyle itemHeight="30"
-                                                colorText="#FFFFFF"
-                                                colorSelText="#FFFFFF"
-                                                colorItemBkgnd="#2B2B2B"
-                                                colorItemSelBkgnd="#505050" />
+                                                colorText="@color/text_primary"
+                                                colorSelText="@color/text_primary"
+                                                colorItemBkgnd="#FFFFFF"
+                                                colorItemSelBkgnd="#FFEBD3" />
 
                                         <items>
                                                 <item text="H.264" />
@@ -333,9 +381,9 @@
                                 <button name="btn_start"
                                         size="-2,42"
                                         skin="btn_translucent"
-                                        colorText="#FFFFFF"
-                                        colorTextHover="#FFFFFF"
-                                        colorTextPush="#FFFFFF"
+                                        colorText="@color/text_primary"
+                                        colorTextHover="@color/text_primary"
+                                        colorTextPush="@color/text_primary"
                                         text="开始处理" />
 
                         </window>

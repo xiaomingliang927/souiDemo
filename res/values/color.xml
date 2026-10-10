@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <color>
-  <!-- 主窗口背景 -->
-  <window_background value="#101217"/>
+  <!-- &#x4E3B;&#x7A97;&#x53E3;&#x80CC;&#x666F; -->
+  <window_background value="#F5F7FB"/>
 
-  <!-- 左侧栏和右侧设置栏背景 -->
-  <sidebar_background value="#171A21"/>
+  <!-- &#x5DE6;&#x4FA7;&#x680F;&#x548C;&#x53F3;&#x4FA7;&#x8BBE;&#x7F6E;&#x680F;&#x80CC;&#x666F; -->
+  <sidebar_background value="#FFFFFF"/>
 
-  <!-- 内容卡片背景 -->
-  <panel_background value="#1B1F27"/>
+  <!-- &#x5185;&#x5BB9;&#x5361;&#x7247;&#x80CC;&#x666F; -->
+  <panel_background value="#FFFFFF"/>
 
-  <!-- 卡片边框 -->
-  <panel_border value="#2A303A"/>
+  <!-- &#x5361;&#x7247;&#x8FB9;&#x6846; -->
+  <panel_border value="#DDE3ED"/>
 
-  <!-- 主要文字 -->
-  <text_primary value="#F2F4F7"/>
+  <!-- &#x4E3B;&#x8981;&#x6587;&#x5B57; -->
+  <text_primary value="#334155"/>
 
-  <!-- 辅助文字 -->
-  <text_secondary value="#858D9B"/>
+  <!-- &#x8F85;&#x52A9;&#x6587;&#x5B57; -->
+  <text_secondary value="#64748B"/>
 
-  <!-- 橙色主按钮 -->
-  <accent value="#F5A623"/>
+  <!-- &#x6A59;&#x8272;&#x4E3B;&#x6309;&#x94AE; -->
+  <accent value="#F58A00"/>
 
-  <!-- 成功状态 -->
+  <!-- &#x6210;&#x529F;&#x72B6;&#x6001; -->
   <success value="#35C759"/>
 </color>

@@ -1,56 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  UIDEF：SOUI 应用级初始化脚本。
-  在 theApp->AddResProvider(pResProvider) 时被自动加载（默认 uidef 名就是 "uidef:xml_init"，
-  见 SResProviderMgr::AddResProvider 的第二个参数）。
+  UIDEF&#xFF1A;SOUI &#x5E94;&#x7528;&#x7EA7;&#x521D;&#x59CB;&#x5316;&#x811A;&#x672C;&#x3002;
+  &#x5728; theApp->AddResProvider(pResProvider) &#x65F6;&#x88AB;&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#xFF08;&#x9ED8;&#x8BA4; uidef &#x540D;&#x5C31;&#x662F; "uidef:xml_init"&#xFF0C;
+  &#x89C1; SResProviderMgr::AddResProvider &#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF09;&#x3002;
 -->
 <UIDEF>
-  <!-- 全局默认字体 -->
-  <font face="微软雅黑" size="18"/>
+  <!-- &#x5168;&#x5C40;&#x9ED8;&#x8BA4;&#x5B57;&#x4F53; -->
+  <font face="&#x5FAE;&#x8F6F;&#x96C5;&#x9ED1;" size="18"/>
 
-  <!-- 把命名值表挂进来；src 语法是 “资源类型:资源名” -->
+  <!-- &#x628A;&#x547D;&#x540D;&#x503C;&#x8868;&#x6302;&#x8FDB;&#x6765;&#xFF1B;src &#x8BED;&#x6CD5;&#x662F; &#x201C;&#x8D44;&#x6E90;&#x7C7B;&#x578B;:&#x8D44;&#x6E90;&#x540D;&#x201D; -->
   <color src="values:color"/>
   <string src="values:string"/>
 
-  <!-- 全局 style（class）：XML 里 class="xxx" 直接引用 -->
+  <!-- &#x5168;&#x5C40; style&#xFF08;class&#xFF09;&#xFF1A;XML &#x91CC; class="xxx" &#x76F4;&#x63A5;&#x5F15;&#x7528; -->
   <style>
-    <class name="txt_title"  font="face:微软雅黑,size:26,bold:1" colorText="#2D6CDF"/>
-    <class name="txt_body"   font="face:微软雅黑,size:16"      colorText="#444444"/>
-    <class name="btn_brand"  colorText="#FFFFFF" colorTextHover="#FFFFFF"
-           font="face:微软雅黑,size:16" cursor="hand" margin-x="0"/>
+    <class name="txt_title"  font="face:&#x5FAE;&#x8F6F;&#x96C5;&#x9ED1;,size:26,bold:1" colorText="#2D6CDF"/>
+    <class name="txt_body"   font="face:&#x5FAE;&#x8F6F;&#x96C5;&#x9ED1;,size:16"      colorText="#444444"/>
+    <class name="brand_button"  colorText="#FFFFFF" colorTextHover="#FFFFFF"
+           font="face:&#x5FAE;&#x8F6F;&#x96C5;&#x9ED1;,size:16" cursor="hand" margin-x="0"/>
   </style>
 
 <skin>
-  <button name="btn_translucent"
-          colorBorder="#FFFFFF40"
-          colorUp="#FFFFFF15"
-          colorDown="#FFFFFF15"
-          colorUpHover="#FFFFFF30"
-          colorDownHover="#FFFFFF30"
-          colorUpPush="#FFFFFF50"
-          colorDownPush="#FFFFFF50"/>
+  <button name="skin_nav_normal" cornerRadius="6"
+          colorBorder="#FFFFFF00" colorBorderHover="#FFFFFF00" colorBorderPush="#FFFFFF00"
+          colorUp="#FFFFFF" colorDown="#FFFFFF"
+          colorUpHover="#F8FAFC" colorDownHover="#F8FAFC"
+          colorUpPush="#F1F5F9" colorDownPush="#F1F5F9"/>
 
-  <button name="skin_file_card"
-        cornerRadius="8"
-        colorBorder="#70552D"
-        colorUp="#15181E"
-        colorDown="#15181E"/>
+  <button name="skin_nav_selected" cornerRadius="6"
+          colorBorder="#F58A00" colorBorderHover="#F58A00" colorBorderPush="#F58A00"
+          colorUp="#FFF1E0" colorDown="#FFF1E0"
+          colorUpHover="#FFEBD3" colorDownHover="#FFEBD3"
+          colorUpPush="#FFE3BF" colorDownPush="#FFE3BF"/>
 
-<button name="skin_file_action"
-        cornerRadius="5"
-        colorBorder="#343A46"
-        colorBorderHover="#586477"
-        colorBorderPush="#586477"
-        colorUp="#1E232C"
-        colorDown="#1E232C"
-        colorUpHover="#2A3240"
-        colorDownHover="#2A3240"
-        colorUpPush="#141A24"
-        colorDownPush="#141A24"/>
+  <button name="btn_translucent" cornerRadius="5"
+          colorBorder="#DDE3ED" colorBorderHover="#F58A00" colorBorderPush="#F58A00"
+          colorUp="#FFFFFF" colorDown="#FFFFFF"
+          colorUpHover="#FFF1E0" colorDownHover="#FFF1E0"
+          colorUpPush="#FFE3BF" colorDownPush="#FFE3BF"/>
+
+  <button name="skin_file_card" cornerRadius="8"
+          colorBorder="#DDE3ED" colorUp="#FFFFFF" colorDown="#FFFFFF"/>
+
+  <button name="skin_file_action" cornerRadius="5"
+          colorBorder="#DDE3ED" colorBorderHover="#F58A00" colorBorderPush="#F58A00"
+          colorUp="#FFFFFF" colorDown="#FFFFFF"
+          colorUpHover="#FFF1E0" colorDownHover="#FFF1E0"
+          colorUpPush="#FFE3BF" colorDownPush="#FFE3BF"/>
+
+  <button name="brand_button" cornerRadius="5"
+          colorBorder="#F58A00" colorBorderHover="#D97706" colorBorderPush="#B45309"
+          colorUp="#F58A00" colorDown="#F58A00"
+          colorUpHover="#D97706" colorDownHover="#D97706"
+          colorUpPush="#B45309" colorDownPush="#B45309"/>
 </skin>
 
-  <!-- 控件默认属性：给某类控件统一加默认值 -->
+  <!-- &#x63A7;&#x4EF6;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;&#xFF1A;&#x7ED9;&#x67D0;&#x7C7B;&#x63A7;&#x4EF6;&#x7EDF;&#x4E00;&#x52A0;&#x9ED8;&#x8BA4;&#x503C; -->
   <objattr>
-    <button class="btn_brand"/>
+    <button name="btn_brand" class="brand_button"/>
   </objattr>
 </UIDEF>
