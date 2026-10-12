@@ -33,6 +33,13 @@
           colorUpHover="#FFEBD3" colorDownHover="#FFEBD3"
           colorUpPush="#FFE3BF" colorDownPush="#FFE3BF"/>
 
+  <!-- tabctrl 页签皮肤：state0=正常 state1=悬停 state2=选中(tabctrl 用 push 状态表示当前页) -->
+  <button name="skin_tab" cornerRadius="6"
+          colorBorder="#FFFFFF00" colorBorderHover="#DDE3ED" colorBorderPush="#F58A00"
+          colorUp="#FFFFFF" colorDown="#FFFFFF"
+          colorUpHover="#F8FAFC" colorDownHover="#F8FAFC"
+          colorUpPush="#FFF1E0" colorDownPush="#FFF1E0"/>
+
   <button name="btn_translucent" cornerRadius="5"
           colorBorder="#DDE3ED" colorBorderHover="#F58A00" colorBorderPush="#F58A00"
           colorUp="#FFFFFF" colorDown="#FFFFFF"
@@ -53,6 +60,54 @@
           colorUp="#F58A00" colorDown="#F58A00"
           colorUpHover="#D97706" colorDownHover="#D97706"
           colorUpPush="#B45309" colorDownPush="#B45309"/>
+
+  <!--
+    圆角窗口背景。
+    窗口是 translucent(分层窗口)，形状完全由 alpha 通道决定：
+    每帧先 ClearRect(rc,0) 清成全透明(SHostWnd.cpp:427)，再用圆角 skin 铺底色，
+    四角未被绘制 → alpha=0 → 真透明圆角（带抗锯齿，比 SetWindowRgn 平滑）。
+    只有最外层 skin_wnd_bg 带边框；内层一律用无边框 skin，
+    否则内层圆角处会露出一段弧形边框线。
+  -->
+  <button name="skin_wnd_bg" cornerRadius="12"
+          colorBorder="#DDE3ED" colorBorderHover="#DDE3ED" colorBorderPush="#DDE3ED"
+          colorUp="#FFFFFF" colorDown="#FFFFFF"
+          colorUpHover="#FFFFFF" colorDownHover="#FFFFFF"
+          colorUpPush="#FFFFFF" colorDownPush="#FFFFFF"/>
+
+  <!-- 内容卡片：贴着窗口内部，四角都是圆角，与窗口圆角互不干扰 -->
+  <button name="skin_card_bg" cornerRadius="8"
+          colorBorder="#DDE3ED" colorBorderHover="#DDE3ED" colorBorderPush="#DDE3ED"
+          colorUp="#F5F7FB" colorDown="#F5F7FB"
+          colorUpHover="#F5F7FB" colorDownHover="#F5F7FB"
+          colorUpPush="#F5F7FB" colorDownPush="#F5F7FB"/>
+
+  <button name="skin_card_white" cornerRadius="8"
+          colorBorder="#DDE3ED" colorBorderHover="#DDE3ED" colorBorderPush="#DDE3ED"
+          colorUp="#FFFFFF" colorDown="#FFFFFF"
+          colorUpHover="#FFFFFF" colorDownHover="#FFFFFF"
+          colorUpPush="#FFFFFF" colorDownPush="#FFFFFF"/>
+
+  <!-- 任务卡片：普通态 -->
+  <button name="skin_task_card" cornerRadius="8"
+          colorBorder="#DDE3ED" colorBorderHover="#DDE3ED" colorBorderPush="#DDE3ED"
+          colorUp="#FFFFFF" colorDown="#FFFFFF"
+          colorUpHover="#FFFFFF" colorDownHover="#FFFFFF"
+          colorUpPush="#FFFFFF" colorDownPush="#FFFFFF"/>
+
+  <!-- 任务卡片：置顶态（淡橙底 + 橙边，运行时由 getView 切换 skin） -->
+  <button name="skin_task_pinned" cornerRadius="8"
+          colorBorder="#F58A00" colorBorderHover="#F58A00" colorBorderPush="#F58A00"
+          colorUp="#FFF7ED" colorDown="#FFF7ED"
+          colorUpHover="#FFF7ED" colorDownHover="#FFF7ED"
+          colorUpPush="#FFF7ED" colorDownPush="#FFF7ED"/>
+
+  <!-- 任务卡片：拖拽中（深一档的橙 + 实边，让用户看到"抓住了这一行"） -->
+  <button name="skin_task_dragging" cornerRadius="8"
+          colorBorder="#F58A00" colorBorderHover="#F58A00" colorBorderPush="#F58A00"
+          colorUp="#FFE3BF" colorDown="#FFE3BF"
+          colorUpHover="#FFE3BF" colorDownHover="#FFE3BF"
+          colorUpPush="#FFE3BF" colorDownPush="#FFE3BF"/>
 </skin>
 
   <!-- &#x63A7;&#x4EF6;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;&#xFF1A;&#x7ED9;&#x67D0;&#x7C7B;&#x63A7;&#x4EF6;&#x7EDF;&#x4E00;&#x52A0;&#x9ED8;&#x8BA4;&#x503C; -->

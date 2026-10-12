@@ -3,6 +3,8 @@
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Release|Win32"><Configuration>Release</Configuration><Platform>Win32</Platform></ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32"><Configuration>Debug</Configuration><Platform>Win32</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64"><Configuration>Release</Configuration><Platform>x64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64"><Configuration>Debug</Configuration><Platform>x64</Platform></ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B6B47556-A244-4A39-9452-79E52A181CF5}</ProjectGuid>
@@ -18,8 +20,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <PropertyGroup>
     <SouiRoot>$(MSBuildProjectDirectory)\..\soui</SouiRoot>
-    <OutDir>$(SouiRoot)\bin\</OutDir>
-    <IntDir>$(MSBuildProjectDirectory)\obj\$(Configuration)\</IntDir>
+    <PlatformSuffix Condition="'$(Platform)'=='x64'">64</PlatformSuffix>
+    <OutDir>$(SouiRoot)\bin$(PlatformSuffix)\</OutDir>
+    <IntDir>$(MSBuildProjectDirectory)\obj\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>newDemo</TargetName>
     <LibrarySuffix Condition="'$(Configuration)'=='Debug'">d</LibrarySuffix>
     <TargetName Condition="'$(Configuration)'=='Debug'">newDemod</TargetName>
@@ -39,9 +42,10 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>soui$(LibrarySuffix).lib;utilities$(LibrarySuffix).lib;SkMatrix$(LibrarySuffix).lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SouiRoot)\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SouiRoot)\bin$(PlatformSuffix);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
-      <TargetMachine>MachineX86</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='Win32'">MachineX86</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='x64'">MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

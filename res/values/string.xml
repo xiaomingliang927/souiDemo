@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 命名字符串表（init.xml 里 <string src="values:string"/> 会加载这里）。
+     空文件会让 XML 解析失败并在日志里刷一条错误，所以保留一个空根节点。 -->
+<string>
+</string>
